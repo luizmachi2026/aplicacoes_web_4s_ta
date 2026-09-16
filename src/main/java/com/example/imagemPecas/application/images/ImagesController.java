@@ -6,6 +6,7 @@ import com.example.imagemPecas.domain.service.ImageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -52,8 +53,9 @@ public class ImagesController {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(image.getExtension().getMediaType());
         headers.setContentLength(image.getSize());
-        headers.setContentDispositionFormData("", image.getName()
-                .concat("").concat(image.getExtension().name()));
+        headers.setContentDispositionFormData("inline; filename= \"" + image.getName()
+                        + "\"",image.getFileName());
+        return new ResponseEntity<>(image.getFile(), headers, HttpStatus.OK);
     }
 
     //localhost:8080/v1/images   /xzxzxzxzxzxzxzxzxzxz
