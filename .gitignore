@@ -32,6 +32,10 @@ build/
 ### VS Code ###
 .vscode/
 
-### DATABASE #####
-/data
-data
+### PostgreSQL data volume ###
+data/
+
+### arquivos do osx
+.DS_Store
+src/.DS_Store
+src/main/.DS_Store

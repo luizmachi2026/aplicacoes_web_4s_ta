@@ -14,3 +14,5 @@ public class ImageDTO {
     private Long size;
     private LocalDate uploadDate;
 }
+
+
